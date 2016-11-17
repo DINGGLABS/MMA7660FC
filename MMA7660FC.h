@@ -35,8 +35,8 @@ public:
   void end();
   void setMode(mode modeNr);
   void setSampleRate(sample_rate rateNr);
-  void getAccelerationVector(int8_t *vector);
-  void getAccelerationVector(float *vector, bool convert = true);
+  void getAccelerationVector(int8_t vector[3]);
+  void getAccelerationVector(float vector[3], bool convert = true);
   orientation getOrientation();
 
 private:

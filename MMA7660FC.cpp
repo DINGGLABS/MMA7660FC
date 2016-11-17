@@ -24,7 +24,7 @@ void MMA7660FC::setSampleRate(sample_rate rateNr)
   writeRegister(REG_SR, rateNr);
 }
 
-void MMA7660FC::getAccelerationVector(int8_t *vector)
+void MMA7660FC::getAccelerationVector(int8_t vector[3])
 {
   bool alert;
   do
@@ -45,9 +45,14 @@ void MMA7660FC::getAccelerationVector(int8_t *vector)
   } while (alert);  // repeat the whole crap if an alert bit is set!
 }
 
-void MMA7660FC::getAccelerationVector(float *vector, bool convert)
+void MMA7660FC::getAccelerationVector(float vector[3], bool convert)
 {
-  getAccelerationVector((int8_t*)(vector));
+  int8_t tempVector[3];
+  getAccelerationVector(tempVector);
+  vector[0] = tempVector[0];
+  vector[1] = tempVector[1];
+  vector[2] = tempVector[2];
+
   if (convert)
   {
     vector[0] /= G_DIVISOR;

@@ -1,9 +1,18 @@
-/* Includes --------------------------------------------------- */
+/**-----------------------------------------------------------------------------
+ * \file    MMA7660FC.h
+ * \author  jh
+ * \date    xx.11.2016
+ * @{
+ -----------------------------------------------------------------------------*/
+
+ /* Includes --------------------------------------------------- */
 #include "MMA7660FC.h"
 
 /* Public ----------------------------------------------------- */
 void MMA7660FC::begin()
 {
+  AccelWire_.begin();
+
   setMode(STAND_BY);
   setSampleRate(AUTO_SLEEP_120);
   setMode(ACTIVE);
@@ -12,6 +21,7 @@ void MMA7660FC::begin()
 void MMA7660FC::end()
 {
   setMode(STAND_BY);
+  AccelWire_.end();
 }
 
 void MMA7660FC::setMode(mode modeNr)
@@ -113,3 +123,7 @@ void MMA7660FC::writeRegister(uint8_t address, uint8_t value)
   AccelWire_.write(value);
   AccelWire_.endTransmission();
 }
+
+/**
+ * @}
+ */

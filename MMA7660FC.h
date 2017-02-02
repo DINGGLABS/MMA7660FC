@@ -1,9 +1,26 @@
-#ifndef MMA7660FC_H
-#define MMA7660FC_H
+/**-----------------------------------------------------------------------------
+ * \file    MMA7660FC.h
+ * \author  jh
+ * \date    xx.11.2016
+ *
+ * \version 1.0
+ *
+ * \brief   The MMA7660FC is a simple low power accelerometer.
+ *
+ * @{
+ -----------------------------------------------------------------------------*/
+
+/* Define to prevent recursive inclusion -----------------------*/
+#ifndef MMA7660FC_H_
+#define MMA7660FC_H_
 
 /* Includes --------------------------------------------------- */
 #include <Arduino.h>
 #include <Wire.h>
+
+/* Typedefs ----------------------------------------------------*/
+/* Macros ----------------------------------------------------- */
+/* Defines -----------------------------------------------------*/
 
 /* Class ------------------------------------------------------ */
 class MMA7660FC
@@ -14,9 +31,10 @@ public:
 	~MMA7660FC() {};
 
 	/* public constants (static) */
+  // ...
 
 	/* public enumerations */
-	enum mode {STAND_BY = 0, ACTIVE = 1};
+	enum mode {STAND_BY = 0, ACTIVE = 1};  // Istand_by = 2... 10uA
   enum orientation {UNKNOWN = 0, UP, DOWN, HORIZONTALLY, VERTICALLY};
   enum sample_rate
   {
@@ -41,7 +59,7 @@ public:
 
 private:
 	/* attributes */
-	// ...
+	TwoWire& AccelWire_;
 
   /* private constants (static) */
 	static const uint8_t I2C_ADDR        = 0x4C;
@@ -62,7 +80,7 @@ private:
   static const int8_t ACCEL_THRESHOLD  = 20;
 
 	/* private variables */
-  TwoWire& AccelWire_;
+  // ...
   
 	/* private methods */
   uint8_t readRegister(uint8_t address);
@@ -70,3 +88,7 @@ private:
 };
 
 #endif
+
+/**
+ * @}
+ */

@@ -96,8 +96,8 @@ MMA7660FC::orientation MMA7660FC::getOrientation()
   orientation o = UNKNOWN;
   int8_t vector[3] = {0};
   getAccelerationVector(vector);
-  if (vector[2] <= -ACCEL_THRESHOLD) o = UP;
-  else if (vector[2] >= ACCEL_THRESHOLD) o = DOWN;
+  if (vector[2] <= -ACCEL_THRESHOLD) o = DOWN;
+  else if (vector[2] >= ACCEL_THRESHOLD) o = UP;
   else if (vector[0] <= -ACCEL_THRESHOLD) o = HORIZONTALLY;
   else if (vector[0] >= ACCEL_THRESHOLD) o = HORIZONTALLY;
   else if (vector[1] <= -ACCEL_THRESHOLD) o = VERTICALLY;

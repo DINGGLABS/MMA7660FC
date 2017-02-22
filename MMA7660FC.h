@@ -56,6 +56,7 @@ public:
   void getAccelerationVector(int8_t vector[3]);
   void getAccelerationVector(float vector[3], bool convert = true);
   orientation getOrientation();
+  //TODO: implement a sleep()- or turnOff()-methode
 
 private:
 	/* attributes */

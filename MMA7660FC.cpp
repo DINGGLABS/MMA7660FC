@@ -9,9 +9,10 @@
 #include "MMA7660FC.h"
 
 /* Public ----------------------------------------------------- */
-void MMA7660FC::begin()
+void MMA7660FC::begin(const uint32_t clockSpeed)
 {
   AccelWire_.begin();
+  AccelWire_.setClock(clockSpeed);
 
   setMode(STAND_BY);
   setSampleRate(AUTO_SLEEP_120);

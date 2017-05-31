@@ -49,7 +49,7 @@ public:
   };
 
 	/* public methods */
-  void begin();
+  void begin(const uint32_t clockSpeed = 200000L);
   void end();
   void setMode(mode modeNr);
   void setSampleRate(sample_rate rateNr);
@@ -82,7 +82,7 @@ private:
 
 	/* private variables */
   // ...
-  
+
 	/* private methods */
   uint8_t readRegister(uint8_t address);
   void writeRegister(uint8_t address, uint8_t value);
